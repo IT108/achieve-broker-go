@@ -34,5 +34,5 @@ func WriteMsg(topic string, data string) {
 	}
 
 	// Wait for message deliveries before shutting down
-	prod.Flush(2)
+	prod.Flush(brokerFlushWait)
 }
