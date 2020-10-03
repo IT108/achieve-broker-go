@@ -41,7 +41,7 @@ func startListen() {
 		msg, err := consumer.ReadMessage(-1)
 		if err == nil {
 			fmt.Printf("Message on %s: %s\n", msg.TopicPartition, string(msg.Value))
-			router.RunAction()
+			router.RunAction(msg)
 			fmt.Println()
 		} else {
 			// The client will automatically try to recover from all errors.

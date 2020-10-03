@@ -3,6 +3,7 @@ package achieve_broker_go_test
 import (
 	. "../../achieve-broker-go"
 	"fmt"
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 	"strconv"
 	"time"
 )
@@ -12,7 +13,7 @@ type testRouter struct {
 	router RouterBase
 }
 
-func (receiver *testRouter) RunAction()  {
+func (receiver *testRouter) RunAction(data *kafka.Message)  {
 	fmt.Print("test")
 }
 
