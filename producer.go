@@ -24,6 +24,10 @@ func WriteMsg(topic string, data string) {
 		buildProducers()
 	}
 
+	go sendMsg(topic, data)
+}
+
+func sendMsg(topic string, data string) {
 	err := prod.Produce(&kafka.Message{
 		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
 		Value:          []byte(data),
