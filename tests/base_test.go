@@ -2,6 +2,7 @@ package achieve_broker_go_test
 
 import (
 	. "../../achieve-broker-go"
+	models "../../achieve-models-go"
 	"fmt"
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 	"strconv"
@@ -23,7 +24,7 @@ func TestStd(t *testing.T) {
 
 func TestProducer(*testing.T) {
 	for  i := range make([]int, 20) {
-		WriteMsg("test", "test " + strconv.Itoa(i))
+		WriteMsg("test", "test " + strconv.Itoa(i), "test")
 	}
 	time.Sleep(time.Millisecond * 10)
 }
@@ -37,4 +38,12 @@ func TestConsumer(t *testing.T) {
 	go TestProducer(t)
 	time.Sleep(time.Second * 5)
 	 StopConsumer()
+}
+
+func TestAuth(*testing.T) {
+	var data = "{\"data\":\"asasd\", \"username\":\"asdddddddddddd\"}"
+	for range make([]int, 3) {
+		WriteMsg(AUTH_TOPIC, data, models.AUTH_REGISTER_KEY)
+	}
+	time.Sleep(time.Millisecond * 10)
 }
