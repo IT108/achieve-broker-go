@@ -17,6 +17,7 @@ func buildProducer() *kafka.Producer {
 
 func buildProducers() {
 	prod = buildProducer()
+	prod.Flush(1)
 }
 
 func WriteMsg(topic string, key string, data string) {
