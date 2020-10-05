@@ -2,8 +2,8 @@ package achieve_broker_go_test
 
 import (
 	. "../../achieve-broker-go"
-	models "../../achieve-models-go"
 	"fmt"
+	models "gopkg.in/IT108/achieve-models-go.v0"
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 	"strconv"
 	"time"
@@ -14,7 +14,7 @@ type testRouter struct {
 	router RouterBase
 }
 
-func (receiver *testRouter) RunAction(data *kafka.Message)  {
+func (receiver *testRouter) RunAction(data *kafka.Message) {
 	fmt.Print("test")
 }
 
@@ -23,8 +23,8 @@ func TestStd(t *testing.T) {
 }
 
 func TestProducer(*testing.T) {
-	for  i := range make([]int, 20) {
-		WriteMsg("test", "test " + strconv.Itoa(i), "test")
+	for i := range make([]int, 20) {
+		WriteMsg("test", "test "+strconv.Itoa(i), "test")
 	}
 	time.Sleep(time.Millisecond * 10)
 }
@@ -37,7 +37,7 @@ func TestConsumer(t *testing.T) {
 	Subscribe([]string{"test"}, "test")
 	go TestProducer(t)
 	time.Sleep(time.Second * 5)
-	 StopConsumer()
+	StopConsumer()
 }
 
 func TestAuth(*testing.T) {

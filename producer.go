@@ -19,7 +19,7 @@ func buildProducers() {
 	prod = buildProducer()
 }
 
-func WriteMsg(topic string, data string, key string) {
+func WriteMsg(topic string, key string, data string) {
 	if prod == nil {
 		buildProducers()
 	}
@@ -27,7 +27,7 @@ func WriteMsg(topic string, data string, key string) {
 	go sendMsg(topic, data, key)
 }
 
-func sendMsg(topic string, data string, key string) {
+func sendMsg(topic string, key string, data string) {
 	err := prod.Produce(&kafka.Message{
 		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
 		Value:          []byte(data),
