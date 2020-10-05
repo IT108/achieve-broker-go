@@ -24,7 +24,7 @@ func WriteMsg(topic string, key string, data string) {
 		buildProducers()
 	}
 
-	go sendMsg(topic, data, key)
+	go sendMsg(topic, key, data)
 }
 
 func sendMsg(topic string, key string, data string) {
