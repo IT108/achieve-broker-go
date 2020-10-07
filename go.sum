@@ -1,0 +1,6 @@
+github.com/confluentinc/confluent-kafka-go v1.4.2 h1:13EK9RTujF7lVkvHQ5Hbu6bM+Yfrq8L0MkJNnjHSd4Q=
+github.com/confluentinc/confluent-kafka-go v1.4.2/go.mod h1:u2zNLny2xq+5rWeTQjFHbDzzNuba4P1vo31r9r4uAdg=
+gopkg.in/IT108/achieve-models-go.v0 v0.1.4 h1:d7p1+7+P8ulbdy+9B7vQHrNpKNi/EhQVMNvDShFIAkc=
+gopkg.in/IT108/achieve-models-go.v0 v0.1.4/go.mod h1:XfFvyUwTbJJ4H9K+UmHslUpll5TbKRIRJ2FlpOpy/N8=
+gopkg.in/confluentinc/confluent-kafka-go.v1 v1.4.2 h1:JabkIV98VYFqYKHHzXtgGMFuRgFBNTNzBytbGByzrJI=
+gopkg.in/confluentinc/confluent-kafka-go.v1 v1.4.2/go.mod h1:ZdI3yfYmdNSLQPNCpO1y00EHyWaHG5EnQEyL/ntAegY=
