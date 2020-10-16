@@ -11,7 +11,7 @@ type Producers struct {
 }
 
 func buildProducer() *kafka.Producer {
-	p, _ := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": brokerHost})
+	p, _ := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": brokerHost + ":" + brokerPort})
 	return p
 }
 
@@ -22,6 +22,7 @@ func buildProducers() {
 
 func WriteMsg(topic string, key string, data string) {
 	if prod == nil {
+		ConfigureFromEnv()
 		buildProducers()
 	}
 

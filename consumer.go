@@ -10,8 +10,9 @@ var consumer *kafka.Consumer
 var router RouterInterface
 
 func buildConsumer(group string) {
+	ConfigureFromEnv()
 	c, err := kafka.NewConsumer(&kafka.ConfigMap{
-		"bootstrap.servers": brokerHost,
+		"bootstrap.servers": brokerHost + ":" + brokerPort,
 		"group.id":          group,
 		"auto.offset.reset": "earliest",
 	})
