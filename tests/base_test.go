@@ -1,8 +1,8 @@
 package achieve_broker_go_test
 
 import (
-	. "../../achieve-broker-go"
 	"fmt"
+	. "github.com/IT108/achieve-broker-go"
 	models "gopkg.in/IT108/achieve-models-go.v0"
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 	"strconv"
