@@ -22,6 +22,7 @@ func buildProducers() {
 
 func WriteMsg(topic string, key string, data string) {
 	if prod == nil {
+		ConfigureFromEnv()
 		buildProducers()
 	}
 
